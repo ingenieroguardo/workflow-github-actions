@@ -25,8 +25,7 @@ jobs:
       - name: Print message
         run: echo "Hello, Algo-${{vars.NAME}}-Máss!"
 
-      - name: Echo files
-        run: cat hola.txt
+  
 
    
   jobs2: 
