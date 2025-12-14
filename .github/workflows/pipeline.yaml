@@ -14,13 +14,12 @@ on:
 
 jobs:
   jobs1:
+    environment: 
+      name: developer
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v6.0.1
-
-      - name: List files
-        run: ls -la
 
       - name: Print message
         run: echo "Hello, Algo-${{vars.NAME}}-Máss!"
@@ -35,9 +34,35 @@ jobs:
 
    
   jobs2: 
+    environment: 
+      name: production
     needs: jobs1
     runs-on: ubuntu-latest
     steps:
-      - name: Print message jobs2
-        run: echo "Hello, World! jobs2"
+      
+      - name: Checkout code
+        uses: actions/checkout@v6.0.1
+
+      - name: Print message
+        run: echo "Hello, Algo-${{vars.NAME}}-Máss!"
+
+      - name: echo secreto
+        run: echo ${{secrets.SECRETO}} > secret.txt
+
+      - name: Echo file
+        run: cat secret.txt
+  
+  jobs3: 
+      
+    needs: jobs2
+    runs-on: ubuntu-latest
+    steps:
+      
+      - name: Checkout code
+        uses: actions/checkout@v6.0.1
+
+      - name: Print message
+        run: echo "Hello, Algo-${{vars.NAME}}-Máss!"
+
+     
 
