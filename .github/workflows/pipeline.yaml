@@ -25,6 +25,12 @@ jobs:
       - name: Print message
         run: echo "Hello, Algo-${{vars.NAME}}-Máss!"
 
+      - name: echo secreto
+        run: echo ${{secrets.SECRETO}} > secret.txt
+
+      - name: Echo file
+        run: cat secret.txt
+
   
 
    
