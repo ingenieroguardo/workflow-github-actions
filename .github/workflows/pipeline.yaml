@@ -1,5 +1,5 @@
 name: Pipeline
-run-name: deploy in live
+run-name: deploy in live by ${{github.actor}}
 on:
 
   push:
@@ -14,8 +14,7 @@ on:
 
 jobs:
   jobs1:
-    environment: 
-      name: developer
+    environment: ${{ github.ref_name == 'main' && 'production' || 'developer' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
