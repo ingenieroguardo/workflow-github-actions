@@ -1,0 +1,25 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6.0.1
+
+      - name: List files
+        run: ls -la
+
+      - name: Print message
+        run: echo "Hello World"
+
+   
+  jobs2: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print message jobs2
+        run: echo "Hello, World! jobs2"
+
